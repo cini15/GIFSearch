@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GIF Searcher</string>
+    <string name="title_activity_more_inf">MoreInfActivity</string>
+    <string name="loading">loading..</string>
+    <string name="search">Search</string>
+
+
+</resources>
