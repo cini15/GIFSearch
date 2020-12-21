@@ -99,12 +99,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<DataContainer> call, Response<DataContainer> response) {
                         if (response.body() != null) {
-//                            gifs.addAll(response.body().getGIFSDataList());
                             adapter.addAll(response.body().getGIFSDataList());
                             recyclerView.getAdapter().notifyDataSetChanged();
                         }
                         isLoading=false;
-                        Log.d(TAG, "count of Gifs: " + gifs.size() + " count of load: " + response.body().getGIFSDataList().size());
+                        Log.d(TAG, "count of Gifs: " + adapter.getItemCount() + " count of load: " + response.body().getGIFSDataList().size());
                     }
 
                     @Override

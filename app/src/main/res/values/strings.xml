@@ -3,6 +3,8 @@
     <string name="title_activity_more_inf">MoreInfActivity</string>
     <string name="loading">loading..</string>
     <string name="search">Search</string>
+    <string name="save">Save</string>
+    <string name="share">share</string>
 
 
 </resources>

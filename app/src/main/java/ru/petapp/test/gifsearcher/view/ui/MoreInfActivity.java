@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 
@@ -68,18 +71,35 @@ public class MoreInfActivity extends AppCompatActivity {
 
     private void initBinding() {
 
-//        LayoutInflater layoutInflater=LayoutInflater.from(this);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_more_inf);
 
-//        binding = DataBindingUtil.setContentView(this, R.layout.content_more_inf);
         viewModel = new ItemViewModel(this, mGifsData);
         binding.setGif(viewModel);
         binding.executePendingBindings();
         Log.d(TAG,mGifsData.getTitle()+mGifsData.getBitlyGifUrl());
+
+        LinearLayout.LayoutParams params= (LinearLayout.LayoutParams) binding.gifImage.getLayoutParams();
+        float width = this.getResources().getDisplayMetrics().widthPixels;
+        float ratio = width / binding.getGif().getWidth() ;
+
+        params.weight = binding.getGif().getWidth() * ratio;
+        params.height = (int) (binding.getGif().getHeight() * ratio);
+
+        binding.gifImage.setBackgroundColor(binding.getGif().getColor());
+
+
         Glide.with(this)
                 .asGif()
                 .load(viewModel.getDownsizedURL())
                 .into(binding.gifImage);
+
+        Button b = findViewById(R.id.save_gif);
+        b.setOnClickListener(v -> {
+            Log.println(Log.DEBUG,TAG,"SAVE");
+        });
+
     }
+
+
 
 }

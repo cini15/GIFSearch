@@ -10,8 +10,8 @@ import ru.petapp.test.gifsearcher.model.giphy.GIFSData;
 import ru.petapp.test.gifsearcher.view.ui.MoreInfActivity;
 
 public class ItemViewModel extends ViewModel {
-    private GIFSData mPreviewGif;
-    private Context context;
+    private final GIFSData mPreviewGif;
+    private final Context context;
     private int color=0;
     private static int num;
 
@@ -22,7 +22,7 @@ public class ItemViewModel extends ViewModel {
     }
 
     private int setColor() {
-        int colorArr[] = {
+        int[] colorArr = {
                 context.getResources().getColor(R.color.yellow),
                 context.getResources().getColor(R.color.blue),
                 context.getResources().getColor(R.color.brown),

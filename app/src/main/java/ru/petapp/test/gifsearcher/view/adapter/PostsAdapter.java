@@ -2,10 +2,8 @@ package ru.petapp.test.gifsearcher.view.adapter;
 
 
 import android.content.Context;
-import android.databinding.ViewDataBinding;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -23,7 +21,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ItemViewHold
     private static final String TAG = PostsAdapter.class.getSimpleName();
 
     private List<GIFSData> gifs;
-    private Context context;
+    private final Context context;
 
 
     public void setGifs(List<GIFSData> gifs) {
@@ -84,17 +82,13 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ItemViewHold
         void bind(PostItemBinding binding) {
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) binding.gifImage.getLayoutParams();
             float width = context.getResources().getDisplayMetrics().widthPixels;
-            float ratio = (float) width / binding.getGif().getWidth() / 2;
+            float ratio = width / binding.getGif().getWidth() / 2;
 
             params.weight = binding.getGif().getWidth() * ratio;
             params.height = (int) (binding.getGif().getHeight() * ratio);
 
             binding.gifImage.setBackgroundColor(binding.getGif().getColor());
 
-//            Glide.with(context)
-//                    .asGif()
-//                    .load(binding.getGif().getPreviewUri())
-//                    .into(binding.gifImage).clearOnDetach();
         }
     }
 }
