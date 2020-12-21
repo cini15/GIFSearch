@@ -58,6 +58,11 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ItemViewHold
         viewHolder.bind(binding);
         binding.executePendingBindings();
 
+        Glide.with(context)
+                    .asGif()
+                    .load(binding.getGif().getPreviewUri())
+                    .into(binding.gifImage).clearOnDetach();
+
     }
 
     @Override
@@ -86,10 +91,10 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ItemViewHold
 
             binding.gifImage.setBackgroundColor(binding.getGif().getColor());
 
-            Glide.with(context)
-                    .asGif()
-                    .load(binding.getGif().getPreviewUri())
-                    .into(binding.gifImage).clearOnDetach();
+//            Glide.with(context)
+//                    .asGif()
+//                    .load(binding.getGif().getPreviewUri())
+//                    .into(binding.gifImage).clearOnDetach();
         }
     }
 }
