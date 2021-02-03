@@ -2,10 +2,6 @@ package ru.petapp.test.gifsearcher.view.ui;
 
 import android.graphics.Point;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
@@ -13,14 +9,16 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import ru.petapp.test.gifsearcher.R;
 import ru.petapp.test.gifsearcher.model.giphy.DataContainer;
-import ru.petapp.test.gifsearcher.model.giphy.GIFSData;
 import ru.petapp.test.gifsearcher.model.rep.GiphyRepoImpl;
 import ru.petapp.test.gifsearcher.model.rep.IGiphyRepo;
 import ru.petapp.test.gifsearcher.view.adapter.PostsAdapter;
@@ -29,22 +27,18 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private static final int LAYOUT_ACTIVITY = R.layout.activity_main;
     RecyclerView recyclerView;
     LinearLayout mProgressBar;
 
-    private List<GIFSData> gifs;
     private IGiphyRepo api;
     private boolean isLoading=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(LAYOUT_ACTIVITY);
+        setContentView(R.layout.activity_main);
         setSupportActionBar(findViewById(R.id.toolbar));
         mProgressBar = findViewById(R.id.progress_indicator);
-
-        gifs = new ArrayList<>();
 
         Display display= getWindowManager().getDefaultDisplay();
         Point point= new Point();
@@ -93,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadGifs() {
         PostsAdapter adapter= (PostsAdapter) recyclerView.getAdapter();
+        Log.d(TAG,"Start Load Gifs");
 
         api.getMore(adapter.getItemCount())
                 .enqueue(new Callback<DataContainer>() {

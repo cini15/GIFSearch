@@ -1,6 +1,6 @@
 package ru.petapp.test.gifsearcher.model.giphy;
 
-import android.databinding.BaseObservable;
+import androidx.databinding.BaseObservable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -5,16 +5,16 @@
         name="gif"
         type="ru.petapp.test.gifsearcher.viewModel.ItemViewModel" />
     </data>
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -22,7 +22,7 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:title="@{gif.titleGif}"/>
 
-        </android.support.design.widget.AppBarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             >
 
-            <com.felipecsl.gifimageview.library.GifImageView
+            <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gif_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,7 +46,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/save"
                 android:padding="0dp"
-                android:gravity="center"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
                 />
             <Button
                 android:id="@+id/save_share"
@@ -54,11 +55,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/share"
                 android:padding="0dp"
-                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+
                 />
 
         </LinearLayout>
 
 
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

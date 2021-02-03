@@ -1,10 +1,10 @@
 package ru.petapp.test.gifsearcher.viewModel;
 
-import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
+import androidx.lifecycle.ViewModel;
 import ru.petapp.test.gifsearcher.R;
 import ru.petapp.test.gifsearcher.model.giphy.GIFSData;
 import ru.petapp.test.gifsearcher.view.ui.MoreInfActivity;

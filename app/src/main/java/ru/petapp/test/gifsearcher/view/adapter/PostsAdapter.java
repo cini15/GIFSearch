@@ -2,8 +2,6 @@ package ru.petapp.test.gifsearcher.view.adapter;
 
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -12,6 +10,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import ru.petapp.test.gifsearcher.databinding.PostItemBinding;
 import ru.petapp.test.gifsearcher.model.giphy.GIFSData;
 import ru.petapp.test.gifsearcher.viewModel.ItemViewModel;
@@ -38,7 +38,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ItemViewHold
     }
 
 
-    @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
@@ -59,7 +58,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ItemViewHold
         Glide.with(context)
                     .asGif()
                     .load(binding.getGif().getPreviewUri())
-                    .into(binding.gifImage).clearOnDetach();
+                    .into(binding.gifImage);
 
     }
 
