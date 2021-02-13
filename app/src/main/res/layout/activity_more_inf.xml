@@ -50,7 +50,7 @@
                 android:layout_gravity="center"
                 />
             <Button
-                android:id="@+id/save_share"
+                android:id="@+id/share_gif"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="@string/share"

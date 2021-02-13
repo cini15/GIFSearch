@@ -59,6 +59,11 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ItemViewHold
                     .asGif()
                     .load(binding.getGif().getPreviewUri())
                     .into(binding.gifImage);
+    }
+
+    @Override
+    public void onViewAttachedToWindow(@NonNull ItemViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
 
     }
 

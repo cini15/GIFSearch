@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ru.petapp.test.gifsearcher">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    
 
     <application
         android:name="ru.petapp.test.gifsearcher.model.rep.API"
@@ -14,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name="ru.petapp.test.gifsearcher.view.ui.MainActivity">
             <intent-filter>
@@ -27,6 +32,15 @@
             android:label="@string/title_activity_more_inf"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <provider
+            android:authorities="ru.petapp.test.gifsearcher.provider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
     </application>
 
 </manifest>

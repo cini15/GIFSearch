@@ -40,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.toolbar));
         mProgressBar = findViewById(R.id.progress_indicator);
 
-        Display display= getWindowManager().getDefaultDisplay();
-        Point point= new Point();
-        display.getSize(point);
-
         recyclerView = findViewById(R.id.posts_recycle_view);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -52,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         recyclerView.setHasFixedSize(true);
-//        recyclerView.setItemViewCacheSize(10);
         recyclerView.setDrawingCacheEnabled(true);
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
@@ -104,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<DataContainer> call, Throwable t) {
                         Log.e(TAG, "Error to load Gifs info" + t.toString());
-                        Toast.makeText(MainActivity.this, "ERROR LOAD", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "ERROR LOAD" +t.toString(), Toast.LENGTH_LONG).show();
+
                     }
                 });
     }
